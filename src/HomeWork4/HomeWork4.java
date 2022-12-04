@@ -1,4 +1,8 @@
 package HomeWork4;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/HomeWork4
 public class HomeWork4 {
     public static void main(String[] args) {
         TestElement block1 = new TestElement("В файл с каким расширением компилируется java-файл?",new String[]{"cs", "java", "class", "exe"},3);
