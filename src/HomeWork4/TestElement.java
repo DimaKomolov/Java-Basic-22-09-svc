@@ -1,45 +1,30 @@
 package HomeWork4;
-<<<<<<< HEAD
-=======
 
-import java.util.Scanner;
+import java.util.Arrays;
 
->>>>>>> origin/HomeWork4
-public class TestElement {
-    private final String  question;
-    private final String[] answerOption;
-    private final int correctAnswer;
-<<<<<<< HEAD
-    private final UserInput userInput = new ConsoleUserInputImpl();
-    private final UserOutput userOutput = new ConsoleUserOutput();
-=======
->>>>>>> origin/HomeWork4
+    public class TestElement {
+        private final String question;
+        private final String[]  answerOptions;
+        private final int correctAnswers;
+        private final UserInput userInput = new ConsoleUserInput();
+        private final  UserOutput userOutput = new ConsoleUserOutput();
 
-    public TestElement(String question, String[] answerOption, int correctAnswer) {
-        this.question = question;
-        this.answerOption = answerOption;
-        this.correctAnswer = correctAnswer;
-    }
-<<<<<<< HEAD
-
-    public boolean ask(){
-        userOutput.answer(question);
-        for (int j = 0; j < answerOption.length; j++) {
-            userOutput.answer(j + 1 + "." + answerOption[j]);
+        public TestElement(String question, String[] answerOptions, int correctAnswers) {
+            this.question = question;
+            this.answerOptions = answerOptions;
+            this.correctAnswers = correctAnswers;
         }
-        userOutput.answer("Введите число");
 
+        public boolean test(){
+            userOutput.print(question);
+            for (int j = 0; j < answerOptions.length; j++) {
+                userOutput.print(j+1 + "." + answerOptions[j]);
+            }
+            userOutput.print("Введите число");
+            int userAnswer = userInput.read(answerOptions.length);
 
-       int userAnswer = userInput.ask(answerOption.length);
-=======
-    public boolean ask(){
-        Scanner scanner = new Scanner(System.in);
-        UserInputImpl userInput = new UserInputImpl();
-        userInput.ask(question,answerOption);
+            return userAnswer == correctAnswers;
 
-       UserOutputImpl userOutput = new UserOutputImpl();
-       int userAnswer = userOutput.answer(answerOption,correctAnswer);
->>>>>>> origin/HomeWork4
-       return userAnswer == correctAnswer;
+        }
     }
-}
+
